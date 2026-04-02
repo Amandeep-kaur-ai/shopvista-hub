@@ -49,7 +49,9 @@ export default function ProductListingPage() {
         <nav className="flex items-center gap-1 text-sm text-muted-foreground mb-4">
           <Link to="/" className="hover:text-primary">Home</Link>
           <span>/</span>
-          <span className="text-foreground font-medium">{activeCat?.name || "All Products"}</span>
+          <span className="text-foreground font-medium">
+            {searchQuery ? `Search: "${searchQuery}"` : activeCat?.name || "All Products"}
+          </span>
         </nav>
 
         <div className="flex gap-6">
