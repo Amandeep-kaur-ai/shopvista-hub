@@ -1,4 +1,3 @@
-import { create } from 'zustand';
 import { Product } from './products';
 
 // Simple cart state without zustand - using React context pattern instead
