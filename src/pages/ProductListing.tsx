@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 export default function ProductListingPage() {
   const [searchParams] = useSearchParams();
   const categoryParam = searchParams.get("category") || "";
+  const searchQuery = searchParams.get("q") || "";
   const [sortBy, setSortBy] = useState("popularity");
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 500]);
   const [minRating, setMinRating] = useState(0);
@@ -17,6 +18,15 @@ export default function ProductListingPage() {
   const filtered = useMemo(() => {
     let result = [...products];
     if (categoryParam) result = result.filter(p => p.category === categoryParam);
+    if (searchQuery) {
+      const q = searchQuery.toLowerCase();
+      result = result.filter(p =>
+        p.title.toLowerCase().includes(q) ||
+        p.brand.toLowerCase().includes(q) ||
+        p.category.toLowerCase().includes(q) ||
+        p.description.toLowerCase().includes(q)
+      );
+    }
     result = result.filter(p => p.price >= priceRange[0] && p.price <= priceRange[1]);
     if (minRating > 0) result = result.filter(p => p.rating >= minRating);
 
@@ -28,7 +38,7 @@ export default function ProductListingPage() {
       default: result.sort((a, b) => b.reviews - a.reviews);
     }
     return result;
-  }, [categoryParam, sortBy, priceRange, minRating]);
+  }, [categoryParam, searchQuery, sortBy, priceRange, minRating]);
 
   const activeCat = categories.find(c => c.slug === categoryParam);
 
