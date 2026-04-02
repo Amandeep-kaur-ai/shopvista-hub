@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { Search, MapPin, ShoppingCart, User, Menu, X, ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useCart } from "@/hooks/useCart";
 import { categories } from "@/data/products";
 
@@ -8,6 +8,28 @@ export function Navbar() {
   const { count } = useCart();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+
+  // Sync search input with URL query param
+  useEffect(() => {
+    const q = searchParams.get("q") || "";
+    setSearchQuery(q);
+  }, [searchParams]);
+
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+    if (query.trim()) {
+      navigate(`/products?q=${encodeURIComponent(query.trim())}`, { replace: true });
+    }
+  };
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/products?q=${encodeURIComponent(searchQuery.trim())}`);
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50">
@@ -38,7 +60,7 @@ export function Navbar() {
           </button>
 
           {/* Search */}
-          <div className="flex-1 hidden sm:flex">
+          <form className="flex-1 hidden sm:flex" onSubmit={handleSearchSubmit}>
             <div className="flex w-full rounded-md overflow-hidden">
               <select className="bg-secondary text-secondary-foreground text-xs px-2 border-r border-border focus:outline-none">
                 <option>All</option>
@@ -50,14 +72,14 @@ export function Navbar() {
                 type="text"
                 placeholder="Search products, brands and more..."
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={(e) => handleSearch(e.target.value)}
                 className="flex-1 px-4 py-2 text-sm bg-card text-card-foreground focus:outline-none focus:ring-2 focus:ring-primary"
               />
-              <button className="bg-primary text-primary-foreground px-4 hover:opacity-90 transition-opacity" aria-label="Search">
+              <button type="submit" className="bg-primary text-primary-foreground px-4 hover:opacity-90 transition-opacity" aria-label="Search">
                 <Search className="h-5 w-5" />
               </button>
             </div>
-          </div>
+          </form>
 
           {/* Right icons */}
           <div className="flex items-center gap-2 sm:gap-4">
