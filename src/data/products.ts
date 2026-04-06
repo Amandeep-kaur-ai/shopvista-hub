@@ -98,4 +98,5 @@ export const products: Product[] = [
     category: "home", brand: "BrightSpace", description: "Adjustable LED desk lamp with 5 brightness levels and USB charging port.",
     specs: { "Brightness": "5 levels", "Color Temp": "3000-6000K", "USB": "5V/2A" }, inStock: true
   },
+  
 ];
