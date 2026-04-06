@@ -70,7 +70,7 @@ export const products: Product[] = [
   },
   {
     id: 8, title: "Mechanical Gaming Keyboard", price: 69.99, originalPrice: 99.99,
-    rating: 4.6, reviews: 2890, image: "https://images.unsplash.com/photo-1541140532154-b024d1b22e3d?w=400&h=400&fit=crop",
+    rating: 4.6, reviews: 2890, image: "https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     category: "electronics", brand: "KeyForce", description: "RGB mechanical keyboard with hot-swappable switches.",
     specs: { "Switches": "Mechanical", "Backlight": "RGB", "Connection": "USB-C", "Layout": "Full Size" }, inStock: true, badge: "Deal of the Day"
   },
