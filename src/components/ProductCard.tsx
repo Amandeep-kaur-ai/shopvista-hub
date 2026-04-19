@@ -50,8 +50,8 @@ export function ProductCard({ product }: { product: Product }) {
         <StarRating rating={product.rating} reviews={product.reviews} />
 
         <div className="flex items-baseline gap-2 mt-auto">
-          <span className="text-lg font-bold text-card-foreground">${product.price.toFixed(2)}</span>
-          <span className="text-xs text-muted-foreground line-through">${product.originalPrice.toFixed(2)}</span>
+          <span className="text-lg font-bold text-card-foreground">₹{product.price.toFixed(2)}</span>
+          <span className="text-xs text-muted-foreground line-through">₹{product.originalPrice.toFixed(2)}</span>
           <span className="text-xs font-semibold text-success">{discount}% off</span>
         </div>
 

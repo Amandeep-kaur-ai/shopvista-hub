@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 
-const footerLinks = {
-  "Get to Know Us": ["About Us", "Careers", "Press Releases", "ShopWave Science"],
-  "Connect with Us": ["Facebook", "Twitter", "Instagram"],
-  "Make Money with Us": ["Sell on ShopWave", "Become an Affiliate", "Advertise Your Products"],
-  "Let Us Help You": ["Your Account", "Returns Centre", "Shipping Rates", "Help"],
-};
+// const footerLinks = {
+//   "Get to Know Us": ["About Us", "Careers", "Press Releases", "ShopWave Science"],
+//   "Connect with Us": ["Facebook", "Twitter", "Instagram"],
+//   "Make Money with Us": ["Sell on ShopWave", "Become an Affiliate", "Advertise Your Products"],
+//   "Let Us Help You": ["Your Account", "Returns Centre", "Shipping Rates", "Help"],
+// };
 
 export function Footer() {
   return (
@@ -19,7 +19,7 @@ export function Footer() {
       </button>
 
       {/* Links grid */}
-      <div className="container py-10">
+      {/* <div className="container py-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
@@ -36,7 +36,7 @@ export function Footer() {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
 
       {/* Bottom */}
       <div className="border-t border-nav-secondary py-6">
@@ -45,7 +45,7 @@ export function Footer() {
             Shop<span className="text-nav-foreground">Wave</span>
           </Link>
           <p className="text-xs text-nav-foreground/50">
-            © 2026 ShopWave. All rights reserved. For demo purposes only.
+            © 2026 ShopWave. All rights reserved.
           </p>
         </div>
       </div>

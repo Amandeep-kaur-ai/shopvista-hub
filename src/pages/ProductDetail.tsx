@@ -70,10 +70,10 @@ export default function ProductDetailPage() {
             <div className="border-t border-b border-border py-4 space-y-1">
               <div className="flex items-baseline gap-2">
                 <span className="text-sm text-muted-foreground">-{discount}%</span>
-                <span className="text-2xl font-bold text-foreground">${product.price.toFixed(2)}</span>
+                <span className="text-2xl font-bold text-foreground">₹{product.price.toFixed(2)}</span>
               </div>
               <p className="text-sm text-muted-foreground">
-                M.R.P.: <span className="line-through">${product.originalPrice.toFixed(2)}</span>
+                M.R.P.: <span className="line-through">₹{product.originalPrice.toFixed(2)}</span>
               </p>
               {product.badge && (
                 <span className="inline-block bg-deal text-deal-foreground text-xs font-bold px-2 py-0.5 rounded mt-1">{product.badge}</span>

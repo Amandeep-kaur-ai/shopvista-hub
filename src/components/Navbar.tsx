@@ -55,7 +55,7 @@ export function Navbar() {
             <MapPin className="h-4 w-4" />
             <div className="text-left">
               <div className="text-[10px] leading-tight">Deliver to</div>
-              <div className="font-semibold text-sm leading-tight">New York 10001</div>
+              <div className="font-semibold text-sm leading-tight">Mohali, Punjab</div>
             </div>
           </button>
 

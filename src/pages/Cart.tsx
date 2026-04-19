@@ -44,8 +44,8 @@ export default function CartPage() {
                   </Link>
                   <p className="text-xs text-muted-foreground mt-0.5">{product.brand}</p>
                   <div className="flex items-center gap-2 mt-2">
-                    <span className="text-lg font-bold text-card-foreground">${product.price.toFixed(2)}</span>
-                    <span className="text-xs text-muted-foreground line-through">${product.originalPrice.toFixed(2)}</span>
+                    <span className="text-lg font-bold text-card-foreground">₹{product.price.toFixed(2)}</span>
+                    <span className="text-xs text-muted-foreground line-through">₹{product.originalPrice.toFixed(2)}</span>
                   </div>
                   <div className="flex items-center gap-3 mt-2">
                     <div className="flex items-center border border-border rounded">
@@ -75,7 +75,7 @@ export default function CartPage() {
             <div className="space-y-2 text-sm">
               <div className="flex justify-between text-muted-foreground">
                 <span>Subtotal ({count} items)</span>
-                <span>${total.toFixed(2)}</span>
+                <span>₹{total.toFixed(2)}</span>
               </div>
               <div className="flex justify-between text-muted-foreground">
                 <span>Shipping</span>
@@ -83,11 +83,11 @@ export default function CartPage() {
               </div>
               <div className="flex justify-between text-muted-foreground">
                 <span>Tax (8%)</span>
-                <span>${tax.toFixed(2)}</span>
+                <span>₹{tax.toFixed(2)}</span>
               </div>
               <div className="border-t border-border pt-2 flex justify-between text-foreground font-bold text-base">
                 <span>Total</span>
-                <span>${grandTotal.toFixed(2)}</span>
+                <span>₹{grandTotal.toFixed(2)}</span>
               </div>
             </div>
             <Button className="w-full mt-4" asChild>

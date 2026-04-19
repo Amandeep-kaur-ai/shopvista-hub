@@ -58,7 +58,7 @@ export default function OrdersPage() {
                   </div>
                   <div>
                     <span className="text-xs text-muted-foreground block">TOTAL</span>
-                    <span className="text-card-foreground font-medium">${order.total.toFixed(2)}</span>
+                    <span className="text-card-foreground font-medium">₹{order.total.toFixed(2)}</span>
                   </div>
                 </div>
                 <div className="text-right">
@@ -76,7 +76,7 @@ export default function OrdersPage() {
                     <img src={item.image} alt={item.name} className="w-16 h-16 rounded object-cover bg-secondary/50" loading="lazy" />
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-medium text-card-foreground line-clamp-1">{item.name}</p>
-                      <p className="text-xs text-muted-foreground">Qty: {item.qty} • ${item.price.toFixed(2)}</p>
+                      <p className="text-xs text-muted-foreground">Qty: {item.qty} • ₹{item.price.toFixed(2)}</p>
                     </div>
                     <Button variant="outline" size="sm" asChild>
                       <Link to="/products">Buy Again</Link>
