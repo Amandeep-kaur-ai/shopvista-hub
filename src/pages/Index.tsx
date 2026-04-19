@@ -16,6 +16,8 @@ function HeroBanner() {
     return () => clearInterval(timer);
   }, []);
 
+  console.log(products);
+
   return (
     <div className="relative overflow-hidden bg-nav">
       <img
